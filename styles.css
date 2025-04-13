@@ -249,12 +249,11 @@ img {
 }
 
 .image-container img {
-  display: block;  /* Removes extra space below the image */
-  width: 60%;     /* Makes the image stretch to fill the container */
-  height: auto;    /* Maintains the aspect ratio of the image */
-}
+  display: block;  
+  width: 60%;     
+  height: auto;    
 
-/* For mobile devices (max-width: 600px) */
+
 @media screen and (max-width: 600px) {
   .book {
     width: 100%;
@@ -372,17 +371,6 @@ img {
     height: auto;
   }
 
-  /* footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px;
-    text-align: center; */
-  /* } */
-
-  /* .social-links {
-    display: flex;
-    flex-direction: row;
-  } */
+  
 }
 
