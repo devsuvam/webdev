@@ -5,31 +5,7 @@
   box-sizing: border-box;
 }
 
-/* Hero Section Flexbox */
-.hero {
-  background-image: 
-    linear-gradient(135deg, rgba(42, 44, 43, 0.85), rgba(42, 44, 43, 0.85)), 
-    url('LIB.JPG'); /* Replace with your actual image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.3rem;
-  opacity: 0.95;
-}
-
+/* Body */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f1fdf4;
@@ -55,8 +31,10 @@ body {
 
 .nav-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
 }
 
 .logo {
@@ -66,10 +44,14 @@ body {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
+/* Nav links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 20px;
+  padding-left: 0;
 }
 
 .nav-links li a {
@@ -79,6 +61,7 @@ body {
   padding: 8px 14px;
   border-radius: 20px;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-links li a:hover {
@@ -86,9 +69,26 @@ body {
   transform: scale(1.05);
 }
 
+/* Hero Section */
+.hero {
+  background-image: linear-gradient(135deg, rgba(42, 44, 43, 0.85), rgba(42, 44, 43, 0.85)), url('LIB.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
 
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
 
-
+.hero p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+}
 
 /* Books Section */
 .books {
@@ -130,31 +130,19 @@ body {
 .book img {
   width: 40%;
   max-height: 200px;
-  object-fit: fit;
+  object-fit: cover;
   margin-bottom: 15px;
   border-radius: 8px;
 }
 
-
-.image-gallery {
-  display: flex;  /* Enables Flexbox */
-  flex-wrap: wrap;  /* Allows items to wrap to the next row */
-  justify-content: space-around;  /* Evenly distributes images */
-  gap: 20px;  /* Space between images */
-}
-
-.image-gallery img {
-  width: 100%;  /* Ensures images are responsive */
-  max-width: 200px;  /* Prevents the image from getting too large */
-  height: auto;
-}
 .book h3 {
   font-size: 1.2rem;
   margin: 10px 0 6px;
   color: #2e7d32;
 }
+
 .book h4 {
-  font-size: 1.0rem;
+  font-size: 1rem;
   margin: 10px 0 6px;
   color: #355736;
 }
@@ -173,7 +161,6 @@ body {
   margin: 8px 0;
 }
 
-/* Buy Button with Gradient */
 .buy-btn {
   padding: 10px 18px;
   background: linear-gradient(to right, #66bb6a, #2e7d32);
@@ -236,141 +223,112 @@ footer .social a:hover {
   color: #a5d6a7;
   text-decoration: underline;
 }
-/* More intense shadow effect */
+
+/* Image Enhancements */
 img {
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4), 
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4),
               -10px -10px 20px rgba(0, 0, 0, 0.2);
 }
-/* Make the image container merge with the image */
+
 .image-container {
-  position: relative; /* Ensures the container behaves like a wrapper */
-  overflow: hidden;   /* Ensures no extra space around the image */
-  display: inline-block; /* Keeps the container aligned with the image */
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
 }
 
 .image-container img {
-  display: block;  
-  width: 60%;     
-  height: auto;    
-
-
-@media screen and (max-width: 600px) {
-  .book {
-    width: 100%;
-  }
-
-  .book img {
-    width: 70%;
-    max-height: 140px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero-section {
-    padding: 30px 10px;
-  }
-
-  .about-us-section {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .image-gallery {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .image-gallery img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .social-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-/* For tablets (max-width: 768px) */
-@media screen and (max-width: 768px) {
+/* Image Gallery: Images down one by one, increasing height */
+.image-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.image-gallery img:nth-child(1) {
+  max-height: 200px;
+}
+
+.image-gallery img:nth-child(2) {
+  max-height: 300px;
+}
+
+.image-gallery img:nth-child(3) {
+  max-height: 400px;
+}
+
+.image-gallery img {
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
   .book {
     width: calc(50% - 20px);
   }
+}
 
-  .nav-links {
-    gap: 15px;
-    font-size: 0.95rem;
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .hero-section {
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 0;
+    gap: 10px;
+  }
+
+  .hero {
     padding: 40px 20px;
   }
 
-  .about-us-section {
-    flex-direction: column;
-    align-items: center;
+  .about {
     padding: 30px;
   }
 
-  .image-gallery {
-    flex-direction: row;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .image-gallery img {
-    max-width: 48%;
-    height: auto;
-  }
-
-  footer {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    text-align: center;
+  .book {
+    width: 100%;
   }
 }
 
-/* For large screens (min-width: 1200px) */
+@media screen and (max-width: 600px) {
+  .hero {
+    padding: 30px 10px;
+  }
+
+  .about {
+    padding: 20px;
+  }
+}
+
 @media screen and (min-width: 1200px) {
-  .hero-section {
+  .hero {
     padding: 50px 20px;
   }
 
-  .about-us-section {
-    flex-direction: row;
+  .about {
+    display: flex;
     justify-content: space-between;
     padding: 50px;
+    text-align: left;
   }
 
-  .image-gallery {
-    flex-direction: row;
-    gap: 20px;
-    justify-content: flex-start;
+  .about p {
+    max-width: 60%;
   }
-
-  .image-gallery img {
-    max-width: 200px;
-    height: auto;
-  }
-
-  
 }
-
